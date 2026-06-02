@@ -36,12 +36,18 @@ class _CustomListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
     return ListTile(
-      leading: Icon(currentItem.icon, color: colors.primary,),
+      leading: Icon(currentItem.icon, color: colors.primary),
       trailing: Icon(Icons.arrow_forward_ios_rounded),
       title: Text(currentItem.title),
       subtitle: Text(currentItem.subTitle),
       onTap: () {
-        // TODO: NAV
+        // Navigator.of(context).push(
+        //   MaterialPageRoute(
+        //     builder: (context) => const ButtonsScreen()
+        //   )
+        // );
+
+        Navigator.pushNamed(context, currentItem.link);
       },
     );
   }
