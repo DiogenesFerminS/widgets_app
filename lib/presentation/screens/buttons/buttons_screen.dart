@@ -34,64 +34,78 @@ class _ButtonsView extends StatelessWidget {
           spacing: 10,
           runSpacing: 10,
           children: [
-            ElevatedButton(
-              onPressed: () {}, 
-              child: Text("Elevated")
-            ),
-      
+            ElevatedButton(onPressed: () {}, child: Text("Elevated")),
+
             const ElevatedButton(
-              onPressed: null, 
-              child: Text("Elevated Button")
+              onPressed: null,
+              child: Text("Elevated Button"),
             ),
-      
+
             ElevatedButton.icon(
               onPressed: () {},
-              icon: const Icon( Icons.access_alarm_rounded), 
-              label: const Text("Elevated icon")
+              icon: const Icon(Icons.access_alarm_rounded),
+              label: const Text("Elevated icon"),
             ),
-            FilledButton(
-              onPressed: () {}, 
-              child: const Text("Filled"),
-            ),
+            FilledButton(onPressed: () {}, child: const Text("Filled")),
             FilledButton.icon(
-              onPressed: () {}, 
+              onPressed: () {},
               icon: const Icon(Icons.add_a_photo_sharp),
               label: const Text("Photo"),
             ),
 
-            OutlinedButton(
-              onPressed: () {}, 
-              child: Text("Outlined")
-            ),
+            OutlinedButton(onPressed: () {}, child: Text("Outlined")),
             OutlinedButton.icon(
-              onPressed: () {}, 
+              onPressed: () {},
               label: Text("Outlined"),
               icon: Icon(Icons.access_alarm),
             ),
-            TextButton(
-              onPressed: () {}, 
-              child: Text("text")
-            ),
+            TextButton(onPressed: () {}, child: Text("text")),
             TextButton.icon(
-              onPressed: () {}, 
-              label: Text("With icon"), 
+              onPressed: () {},
+              label: Text("With icon"),
               icon: Icon(Icons.zoom_out_sharp),
             ),
 
             IconButton(
-              onPressed: () {}, 
-              icon: Icon(Icons.wrong_location_outlined)
+              onPressed: () {},
+              icon: Icon(Icons.wrong_location_outlined),
             ),
 
             IconButton(
-              onPressed: () {}, 
+              onPressed: () {},
               icon: Icon(Icons.wrong_location_outlined),
               style: ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll(colors.primary),
-                iconColor: const WidgetStatePropertyAll(Colors.white)
+                iconColor: const WidgetStatePropertyAll(Colors.white),
               ),
-            )
-          ]
+            ),
+
+            CustomButton(text: "Hola soy goku",),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  final String text;
+  const CustomButton({super.key, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Material(
+        color: colors.primary,
+        child: InkWell(
+          onTap: () {},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Text(text, style: TextStyle(color: Colors.white)),
+          ),
         ),
       ),
     );
